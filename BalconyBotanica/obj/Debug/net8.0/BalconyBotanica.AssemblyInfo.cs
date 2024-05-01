@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BalconyBotanica")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d826fe4e24f01972f5802a087cb34957610319a9")]
 [assembly: System.Reflection.AssemblyProductAttribute("BalconyBotanica")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BalconyBotanica")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
