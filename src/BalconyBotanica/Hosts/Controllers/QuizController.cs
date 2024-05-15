@@ -31,6 +31,7 @@ namespace BalconyBotanica.Hosts.Controllers
             return recommendedPlants;
         }
 
+        [HttpGet("getPlantTopOne")]
         public RecommendedPlants getPlantTopOne()
         {
             //TODO: with the questions filled in, 

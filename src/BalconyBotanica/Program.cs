@@ -21,6 +21,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles(); //  statische bestanden te serveren
+
 app.MapControllers(); // Map controllers
+
+app.MapFallbackToFile("/index.html"); // index.html wordt getoond voor niet-specifieke routes
+
 
 app.Run();
