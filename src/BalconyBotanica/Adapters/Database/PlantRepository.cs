@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BalconyBotanica.Adapters.Database.DummyDatabase;
 using BalconyBotanica.Core.DomainObjects;
 
 namespace BalconyBotanica.Adapters.Database
@@ -9,14 +10,16 @@ namespace BalconyBotanica.Adapters.Database
     //  data access concerns only.
     public class PlantRepository : IPlantRepository
     {
-        public PlantData GetPlantById(int plantId)
+        DummyDatabase.DummyDatabase dummyPlantData = new();
+
+        public PlantDataDbo GetPlantById(int plantId)
         {
-            throw new NotImplementedException();
+            return dummyPlantData.ReturnDummyPlant();
         }
 
-        public IEnumerable<PlantData> GetPlants()
+        public IEnumerable<PlantDataDbo> GetPlants()
         {
-            throw new NotImplementedException();
+            return dummyPlantData.ReturnDummyPlants();
         }
     }
 }
