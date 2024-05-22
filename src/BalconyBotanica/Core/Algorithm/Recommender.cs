@@ -19,7 +19,7 @@ namespace BalconyBotanica.Core.Algorithm
 
             PlantData[] arrayToFilter = insertedArray.Plants;
 
-            // check sunlight and delete all the plants who can’t function with that climate
+            // DONE: check sunlight and delete all the plants who can’t function with that climate
             // TODO: If answer has "full sun" delete "full shade".
             // TODO: if awnser had "full shade" delete "full sun".
             if (quizAnswers.sunlight == Sunlight.FULL_SUN)
@@ -30,7 +30,7 @@ namespace BalconyBotanica.Core.Algorithm
                                     .ToArray();
             }
             // check watering
-            // if "minimum" than delete "frequent", 
+            // DONE: if "minimum" than delete "frequent", 
             //      order "minimum" as first, en "avg" as second.
             // TODO: if average than nothing, 
             //      order "frequent" last
@@ -47,10 +47,10 @@ namespace BalconyBotanica.Core.Algorithm
                     .OrderBy(x =>
                     {
                         if (x.WateringSchedule == WateringSchedule.MINIMUM)
-                            return 0; // Voorste positie
+                            return 0; // front of array
                         if (x.WateringSchedule == WateringSchedule.AVERAGE)
-                            return 2; // Achterste positie
-                        return 1; // Midden positie voor alle andere
+                            return 2; // back of array
+                        return 1; // middle position of array
                     })
                     .ToArray();
             }
@@ -59,8 +59,6 @@ namespace BalconyBotanica.Core.Algorithm
             {
                 Plants = arrayToFilter
             };
-
-
 
             return recommendedPlants;
         }

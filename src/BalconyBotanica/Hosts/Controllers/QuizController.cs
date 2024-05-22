@@ -31,9 +31,7 @@ namespace BalconyBotanica.Hosts.Controllers
             IEnumerable<PlantDataDbo> recommendedPlantsDbo = plantRepository.GetPlants();
             RecommendedPlants recommendedPlants = recommendedPlantsDbo.MapToRecommendedPlants();
 
-            recommendedPlants = recommender.Recommend(recommendedPlants, quizAnswers);
-
-            return recommendedPlants;
+            return recommender.Recommend(recommendedPlants, quizAnswers);
         }
 
 
@@ -72,8 +70,7 @@ namespace BalconyBotanica.Hosts.Controllers
 
             if (!Enum.TryParse(toxicity, true, out Toxicity parsedToxicity))
             {
-                // Handel fout af
-                parsedToxicity = Toxicity.NONE; // Voorbeeld default waarde
+                parsedToxicity = Toxicity.NONE;
             }
 
             QuizAnswers quizAnswers = new(
