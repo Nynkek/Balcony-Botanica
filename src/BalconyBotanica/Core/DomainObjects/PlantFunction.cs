@@ -5,6 +5,7 @@ namespace BalconyBotanica.Core.DomainObjects
         EDIBLE,
         FLOWER,
         GREEN,
-        INSECTS
+        INSECTS,
+        NONE
     }
 }
