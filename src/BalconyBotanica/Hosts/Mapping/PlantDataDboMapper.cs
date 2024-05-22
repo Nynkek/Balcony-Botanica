@@ -28,8 +28,8 @@ namespace BalconyBotanica.Hosts.Mapping
                 Scientific_name = dbo.scientific_name,
                 Other_name = dbo.other_name,
                 Cycle = dbo.cycle,
-                Watering = dbo.watering,
-                Sunlight = dbo.sunlight
+                WateringSchedule = (WateringSchedule)dbo.WateringSchedule!,
+                Sunlight = dbo.sunlight!
             }).ToArray();
 
             return plantDataArray;

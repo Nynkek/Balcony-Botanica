@@ -37,7 +37,10 @@ namespace BalconyBotanica.Hosts.Controllers
             //TODO: with the questions filled in, 
             // we generate an plant
 
-            return new RecommendedPlants();
+            IEnumerable<PlantDataDbo> recommendedPlantDbo = plantRepository.GetPlantById(2);
+            RecommendedPlants recommendedPlant = recommendedPlantDbo.MapToRecommendedPlants();
+
+            return recommendedPlant;
         }
     }
 }

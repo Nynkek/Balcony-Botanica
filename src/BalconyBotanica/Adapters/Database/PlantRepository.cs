@@ -12,7 +12,7 @@ namespace BalconyBotanica.Adapters.Database
     {
         DummyDatabase.DummyDatabase dummyPlantData = new();
 
-        public PlantDataDbo GetPlantById(int plantId)
+        public IEnumerable<PlantDataDbo> GetPlantById(int plantId)
         {
             return dummyPlantData.ReturnDummyPlant();
         }

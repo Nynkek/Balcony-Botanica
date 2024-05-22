@@ -9,6 +9,6 @@ namespace BalconyBotanica.Adapters.Database
     public interface IPlantRepository
     {
         IEnumerable<PlantDataDbo> GetPlants();
-        PlantDataDbo GetPlantById(int plantId);
+        IEnumerable<PlantDataDbo> GetPlantById(int plantId);
     }
 }

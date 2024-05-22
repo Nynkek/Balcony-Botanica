@@ -2,7 +2,7 @@ namespace BalconyBotanica.Core.DomainObjects
 {
     public enum PlantFunction
     {
-        EATABLE,
+        EDIBLE,
         FLOWER,
         GREEN,
         INSECTS
