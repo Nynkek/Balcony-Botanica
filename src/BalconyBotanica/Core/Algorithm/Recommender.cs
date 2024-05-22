@@ -6,40 +6,42 @@ using BalconyBotanica.Core.DomainObjects;
 using BalconyBotanica.Hosts.Models;
 
 namespace BalconyBotanica.Core.Algorithm
+
 {
     /// <summary>
     /// provides a list of (generic) items when given a set of quiz-answers
     /// </summary>
     public class Recommender
     {
-        // TODO: make more generic, for now I want it working
+        // TODO: make Recommend more generic, for now I want it working
         public RecommendedPlants Recommend(RecommendedPlants insertedArray, QuizAnswers quizAnswers)
         {
 
             PlantData[] arrayToFilter = insertedArray.Plants;
-            // TODO: magic
-
 
             // check sunlight and delete all the plants who can’t function with that climate
-            // If answer has "full sun" delete "full shade".
-            // if awnser had "full shade" delete "full sun".
+            // TODO: If answer has "full sun" delete "full shade".
+            // TODO: if awnser had "full shade" delete "full sun".
             if (quizAnswers.sunlight == Sunlight.FULL_SUN)
             {
-                // Sunlight optionToRemove = Sunlight.FULL_SHADE;
-                // arrayToFilter = arrayToFilter.Where(x => x.Sunlight != optionToRemove);
-
+                Sunlight optionToRemove = Sunlight.FULL_SHADE;
+                arrayToFilter = arrayToFilter
+                                    .Where(x => x.Sunlight.Contains(optionToRemove))
+                                    .ToArray();
             }
             // check watering
             // if "minimum" than delete "frequent", 
             //      order "minimum" as first, en "avg" as second.
-            // if average than nothing, 
+            // TODO: if average than nothing, 
             //      order "frequent" last
-            // if frequent than nothing, 
+            // TODO: if frequent than nothing, 
             //      order nothing
             if (quizAnswers.wateringSchedule == WateringSchedule.MINIMUM)
             {
                 WateringSchedule optionToRemove = WateringSchedule.FREQUENT;
-                arrayToFilter = arrayToFilter.Where(x => x.WateringSchedule != optionToRemove).ToArray();
+                arrayToFilter = arrayToFilter
+                                    .Where(x => x.WateringSchedule != optionToRemove)
+                                    .ToArray();
 
                 arrayToFilter = arrayToFilter
                     .OrderBy(x =>
@@ -53,10 +55,14 @@ namespace BalconyBotanica.Core.Algorithm
                     .ToArray();
             }
 
+            RecommendedPlants recommendedPlants = new()
+            {
+                Plants = arrayToFilter
+            };
 
-            var returnedList = insertedArray;
 
-            return returnedList;
+
+            return recommendedPlants;
         }
     }
 }
