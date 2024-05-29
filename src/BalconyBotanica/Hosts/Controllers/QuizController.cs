@@ -20,7 +20,7 @@ namespace BalconyBotanica.Hosts.Controllers
         readonly Recommender recommender = new();
 
         [HttpGet("getPlantTopThree")]
-        public RecommendedPlants getPlantTopThree(
+        public ActionResult<RecommendedPlants> GetPlantTopThree(
                 [FromQuery, Required] string sunlight,
                 [FromQuery] int spaceSizeSquareMeters,
                 [FromQuery, Required] string wateringSchedule,
@@ -31,7 +31,9 @@ namespace BalconyBotanica.Hosts.Controllers
             IEnumerable<PlantDataDbo> recommendedPlantsDbo = plantRepository.GetPlants();
             RecommendedPlants recommendedPlants = recommendedPlantsDbo.MapToRecommendedPlants();
 
-            return recommender.Recommend(recommendedPlants, quizAnswers);
+            var result = recommender.Recommend(recommendedPlants, quizAnswers);
+
+            return Ok(result); // Return as JSON
         }
 
 

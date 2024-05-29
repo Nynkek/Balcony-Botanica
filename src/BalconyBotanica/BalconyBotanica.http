@@ -1,6 +1,6 @@
 @BalconyBotanica_HostAddress = http://localhost:5221
 
-GET {{BalconyBotanica_HostAddress}}/weatherforecast/
+GET {{BalconyBotanica_HostAddress}}/v1/getPlantTopThree/
 Accept: application/json
 
 ###
