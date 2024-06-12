@@ -6,6 +6,7 @@ using NUnit.Framework;
 
 namespace tests.Core
 {
+    [TestFixture]
     public class RecommenderUnitTests
     {
         // TO DO: all scenario's

@@ -20,7 +20,7 @@ namespace BalconyBotanica.Hosts.Controllers
         readonly Recommender recommender = new();
 
         [HttpGet("getPlantTopThree")]
-        public ActionResult<RecommendedPlants> GetPlantTopThree(
+        public ActionResult GetPlantTopThree(
                 [FromQuery, Required] string sunlight,
                 [FromQuery] int spaceSizeSquareMeters,
                 [FromQuery, Required] string wateringSchedule,
@@ -33,7 +33,10 @@ namespace BalconyBotanica.Hosts.Controllers
 
             var result = recommender.Recommend(recommendedPlants, quizAnswers);
 
-            return Ok(result); // Return as JSON
+            TrimPlantsArrayToLenght(result, lenght: 3);
+
+
+            return Ok(result);
         }
 
 
@@ -41,7 +44,7 @@ namespace BalconyBotanica.Hosts.Controllers
         [HttpGet("getPlantTopOne")]
         public RecommendedPlants GetPlantTopOne()
         {
-            //TODO: for testing purpose. This one has no Path Query's yet.
+            //TODO: for testing purpose only. This one has no Path Query's (yet).
 
             IEnumerable<PlantDataDbo> recommendedPlantDbo = plantRepository.GetPlantById(2);
             RecommendedPlants recommendedPlant = recommendedPlantDbo.MapToRecommendedPlants();
@@ -53,20 +56,16 @@ namespace BalconyBotanica.Hosts.Controllers
         {
             if (!Enum.TryParse(sunlight, true, out Sunlight parsedSunlight))
             {
-                // TODO: handle exeption if empty. Can't be empty
                 throw new Exception(nameof(sunlight) + " can't be empty.");
             }
 
             if (!Enum.TryParse(wateringSchedule, true, out WateringSchedule parsedWateringSchedule))
             {
-                // TODO: handle exeption if empty. Can't be empty
                 throw new Exception(nameof(wateringSchedule) + " can't be empty.");
-
             }
 
             if (!Enum.TryParse(plantFunction, true, out PlantFunction parsedPlantFunction))
             {
-
                 parsedPlantFunction = PlantFunction.NONE;
             }
 
@@ -83,6 +82,13 @@ namespace BalconyBotanica.Hosts.Controllers
                         toxicity: parsedToxicity
             );
             return quizAnswers;
+        }
+        public void TrimPlantsArrayToLenght(RecommendedPlants recommendedPlants, int lenght)
+        {
+            if (recommendedPlants.Plants.Length > lenght)
+            {
+                recommendedPlants.Plants = recommendedPlants.Plants.Take(lenght).ToArray();
+            }
         }
     }
 }

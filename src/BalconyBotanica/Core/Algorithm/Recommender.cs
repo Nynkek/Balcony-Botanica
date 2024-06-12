@@ -47,10 +47,10 @@ namespace BalconyBotanica.Core.Algorithm
                     .OrderBy(x =>
                     {
                         if (x.WateringSchedule == WateringSchedule.MINIMUM)
-                            return 0; // front of array
+                            return 10; // front of array
                         if (x.WateringSchedule == WateringSchedule.AVERAGE)
-                            return 2; // back of array
-                        return 1; // middle position of array
+                            return 20; // back of array
+                        return 15; // middle position of array
                     })
                     .ToArray();
             }
