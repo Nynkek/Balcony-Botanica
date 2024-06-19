@@ -75,7 +75,7 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
 
         readonly PlantDataDbo plantData6 = new()
         {
-            id = "5",
+            id = "6",
             common_name = "Lavender shade",
             scientific_name = ["Lavandula"],
             other_name = ["English Lavender", "French Lavender"],
