@@ -16,8 +16,9 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
             scientific_name = ["Helianthus annuus"],
             other_name = ["Helianthus", "Common Sunflower"],
             cycle = "Annual",
-            WateringSchedule = WateringSchedule.FREQUENT,
-            sunlight = [Sunlight.FULL_SUN]
+            wateringSchedule = WateringSchedule.FREQUENT,
+            sunlight = [Sunlight.FULL_SUN],
+            toxicity = [Toxicity.POISONOUS_TO_PETS, Toxicity.POISONOUS_TO_HUMANS]
         };
 
         readonly PlantDataDbo plantData2 = new()
@@ -27,8 +28,10 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
             scientific_name = ["Rosa"],
             other_name = ["Garden Rose", "Wild Rose"],
             cycle = "Perennial",
-            WateringSchedule = WateringSchedule.AVERAGE,
-            sunlight = [Sunlight.FULL_SUN, Sunlight.PART_SHADE]
+            wateringSchedule = WateringSchedule.AVERAGE,
+            sunlight = [Sunlight.FULL_SUN, Sunlight.PART_SHADE],
+            toxicity = [Toxicity.POISONOUS_TO_HUMANS]
+
         };
 
         readonly PlantDataDbo plantData3 = new()
@@ -38,8 +41,10 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
             scientific_name = ["Tulipa"],
             other_name = ["Garden Tulip"],
             cycle = "Perennial",
-            WateringSchedule = WateringSchedule.AVERAGE,
-            sunlight = [Sunlight.FULL_SUN, Sunlight.PART_SHADE]
+            wateringSchedule = WateringSchedule.AVERAGE,
+            sunlight = [Sunlight.FULL_SUN, Sunlight.PART_SHADE],
+            toxicity = [Toxicity.POISONOUS_TO_PETS]
+
         };
 
         readonly PlantDataDbo plantData4 = new()
@@ -49,8 +54,10 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
             scientific_name = ["Cactaceae"],
             other_name = ["Cacti", "Succulent"],
             cycle = "Perennial",
-            WateringSchedule = WateringSchedule.MINIMUM,
-            sunlight = [Sunlight.FULL_SUN]
+            wateringSchedule = WateringSchedule.MINIMUM,
+            sunlight = [Sunlight.FULL_SUN],
+            toxicity = [Toxicity.NONE]
+
         };
 
         readonly PlantDataDbo plantData5 = new()
@@ -60,13 +67,27 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
             scientific_name = ["Lavandula"],
             other_name = ["English Lavender", "French Lavender"],
             cycle = "Perennial",
-            WateringSchedule = WateringSchedule.AVERAGE,
-            sunlight = [Sunlight.FULL_SUN]
+            wateringSchedule = WateringSchedule.AVERAGE,
+            sunlight = [Sunlight.FULL_SUN],
+            toxicity = [Toxicity.NONE]
+
+        };
+
+        readonly PlantDataDbo plantData6 = new()
+        {
+            id = "6",
+            common_name = "Lavender shade",
+            scientific_name = ["Lavandula"],
+            other_name = ["English Lavender", "French Lavender"],
+            cycle = "Perennial",
+            wateringSchedule = WateringSchedule.MINIMUM,
+            sunlight = [Sunlight.FULL_SHADE],
+            toxicity = [Toxicity.NONE]
+
         };
 
         public PlantDataDbo[] ReturnDummyPlant()
         {
-            // TODO: return plant via algorithm
             PlantDataDbo[] plant = [plantData1];
 
             return plant;
@@ -74,8 +95,7 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
 
         public PlantDataDbo[] ReturnDummyPlants()
         {
-            // TODO: return plant via algorithm
-            PlantDataDbo[] plants = [plantData1, plantData2, plantData3, plantData4, plantData5];
+            PlantDataDbo[] plants = [plantData1, plantData2, plantData3, plantData4, plantData5, plantData6];
 
             return plants;
         }

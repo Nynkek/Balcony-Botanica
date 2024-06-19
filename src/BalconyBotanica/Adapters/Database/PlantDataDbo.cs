@@ -13,7 +13,8 @@ namespace BalconyBotanica.Adapters.Database
         public required string[] scientific_name;
         public string[]? other_name;
         public string? cycle;
-        public required WateringSchedule? WateringSchedule;
-        public required Sunlight[]? sunlight;
+        public required WateringSchedule? wateringSchedule;
+        public required Sunlight[] sunlight;
+        public required Toxicity[] toxicity;
     }
 }

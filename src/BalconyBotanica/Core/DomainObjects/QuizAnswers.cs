@@ -11,7 +11,7 @@ namespace BalconyBotanica.Core.DomainObjects
         public int spaceSizeSquareMeters;
         public WateringSchedule wateringSchedule;
         public PlantFunction? plantFunction;
-        public Toxicity? toxicity;
+        public Toxicity toxicity;
 
         public QuizAnswers(Sunlight sunlight, int spaceSizeSquareMeters, WateringSchedule wateringSchedule, PlantFunction plantFunction, Toxicity toxicity)
         {

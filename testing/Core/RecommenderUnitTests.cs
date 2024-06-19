@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using NUnit.Framework;
+using BalconyBotanica.Core.Algorithm;
+using BalconyBotanica.Core.DomainObjects;
+using BalconyBotanica.Hosts.Models;
 
-namespace tests.Core
+namespace MyTestProject.Core
 {
     [TestFixture]
     public class RecommenderUnitTests
@@ -23,10 +21,19 @@ namespace tests.Core
         public void Setup()
         {
         }
-
+        // TODO: write tests, just made all the builders to make testing easier
         [Test]
-        public void Test1()
+        public void All_Answers_Should_Return_Successfull()
         {
+            Recommender recommender = new Recommender();
+
+            RecommendedPlants insertedArray = One.RecommendedPlants;
+            QuizAnswers quizAnswers = One.QuizAnswers;
+
+
+            recommender.Recommend(insertedArray, quizAnswers);
+
+
             Assert.Pass();
         }
     }
