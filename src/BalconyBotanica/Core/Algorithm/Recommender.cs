@@ -22,32 +22,42 @@ namespace BalconyBotanica.Core.Algorithm
             if (quizAnswers.sunlight > Sunlight.FILTERED_SHADE)
             {
                 arrayToFilter = arrayToFilter
-                    .Where(x => x.Sunlight.All(s => s > Sunlight.FILTERED_SHADE))
+                    .Where(x =>
+                        x.Sunlight.All(s =>
+                            s > Sunlight.FILTERED_SHADE))
                     .ToArray();
             }
+            // TODO: the above seems to work, this part doesnt... debug with tests
             if (quizAnswers.sunlight <= Sunlight.FILTERED_SHADE)
             {
                 arrayToFilter = arrayToFilter
-                    .Where(x => x.Sunlight.All(s => s <= Sunlight.PART_SHADE))
+                    .Where(x =>
+                        x.Sunlight.All(s =>
+                    s <= Sunlight.PART_SHADE))
                     .ToArray();
             }
 
             if (quizAnswers.wateringSchedule <= WateringSchedule.MINIMUM)
             {
                 arrayToFilter = arrayToFilter
-                    .Where(x => x.WateringSchedule <= WateringSchedule.AVERAGE)
-                    .OrderBy(x => x.WateringSchedule)
+                    .Where(x =>
+                        x.WateringSchedule <= WateringSchedule.AVERAGE)
+                    .OrderBy(x =>
+                        x.WateringSchedule)
                     .ToArray();
             }
             else
             {
                 arrayToFilter = arrayToFilter
-                   .OrderBy(x => x.WateringSchedule)
+                   .OrderBy(x =>
+                        x.WateringSchedule)
                    .ToArray();
             }
 
             arrayToFilter = arrayToFilter
-                  .Where(x => x.Toxicity.All(s => s != quizAnswers.toxicity))
+                  .Where(x =>
+                    x.Toxicity.All(s =>
+                        s != quizAnswers.toxicity))
                   .ToArray();
 
             RecommendedPlants recommendedPlants = new()
