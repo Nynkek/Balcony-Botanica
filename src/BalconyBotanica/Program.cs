@@ -20,6 +20,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddScoped<PlantRepository>();
 
 var app = builder.Build();
+app.UseFileServer();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -27,12 +28,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
+app.UseDefaultFiles();
 app.UseStaticFiles(); //  statische bestanden te serveren
-
 app.MapControllers(); // Map controllers
-
 app.MapFallbackToFile("/index.html"); // index.html wordt getoond voor niet-specifieke routes
 
 

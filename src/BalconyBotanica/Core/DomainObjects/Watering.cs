@@ -2,8 +2,8 @@ namespace BalconyBotanica.Core.DomainObjects
 {
     public enum WateringSchedule
     {
-        MINIMUM,
-        AVERAGE,
-        FREQUENT
+        MINIMUM = 10,
+        AVERAGE = 20,
+        FREQUENT = 30
     }
 }

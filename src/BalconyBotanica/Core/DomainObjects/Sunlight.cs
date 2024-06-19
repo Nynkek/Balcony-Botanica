@@ -2,9 +2,9 @@ namespace BalconyBotanica.Core.DomainObjects
 {
     public enum Sunlight
     {
-        FULL_SUN,
-        PART_SHADE,
-        FILTERED_SHADE,
-        FULL_SHADE
+        FULL_SUN = 10,
+        PART_SHADE = 20,
+        FILTERED_SHADE = 30,
+        FULL_SHADE = 40
     }
 }
