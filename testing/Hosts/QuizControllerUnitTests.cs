@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace MyTestProject.Hosts
+namespace testing.Hosts
 {
     [TestFixture]
     public class QuizControllerUnitTests

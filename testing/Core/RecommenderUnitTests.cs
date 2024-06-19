@@ -1,8 +1,9 @@
 using BalconyBotanica.Core.Algorithm;
 using BalconyBotanica.Core.DomainObjects;
 using BalconyBotanica.Hosts.Models;
+using testing.TestData.Builders;
 
-namespace MyTestProject.Core
+namespace testing.Core
 {
     [TestFixture]
     public class RecommenderUnitTests

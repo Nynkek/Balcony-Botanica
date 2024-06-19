@@ -1,4 +1,4 @@
-﻿namespace MyTestProject;
+﻿namespace testing.TestData.Builders;
 
 public abstract class Builder<T> where T : class
 {

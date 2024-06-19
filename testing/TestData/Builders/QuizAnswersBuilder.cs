@@ -1,6 +1,6 @@
 ﻿using BalconyBotanica.Core.DomainObjects;
 
-namespace MyTestProject;
+namespace testing.TestData.Builders;
 
 public class QuizAnswersBuilder : Builder<QuizAnswers>
 {

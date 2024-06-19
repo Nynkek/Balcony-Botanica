@@ -1,7 +1,7 @@
 ﻿using BalconyBotanica.Core.DomainObjects;
 using BalconyBotanica.Hosts.Models;
 
-namespace MyTestProject;
+namespace testing.TestData.Builders;
 
 public class RecommendedPlantsBuilder : Builder<RecommendedPlants>
 {
