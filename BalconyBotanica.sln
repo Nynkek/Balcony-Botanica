@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalconyBotanica", "src\BalconyBotanica\BalconyBotanica.csproj", "{C8E7C82C-2C10-4D0C-9468-61BA0C9EBB79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestProject", "MyTestProject\MyTestProject.csproj", "{57F9B77F-7BD7-4522-84AA-5304306558FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,17 @@ Global
 		{C8E7C82C-2C10-4D0C-9468-61BA0C9EBB79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8E7C82C-2C10-4D0C-9468-61BA0C9EBB79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8E7C82C-2C10-4D0C-9468-61BA0C9EBB79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC516DFF-C15B-46D0-896D-27A2B77E3C88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC516DFF-C15B-46D0-896D-27A2B77E3C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC516DFF-C15B-46D0-896D-27A2B77E3C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC516DFF-C15B-46D0-896D-27A2B77E3C88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F384552-D0D8-4BDC-80A8-2C2C3D9EAAAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F384552-D0D8-4BDC-80A8-2C2C3D9EAAAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F384552-D0D8-4BDC-80A8-2C2C3D9EAAAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F384552-D0D8-4BDC-80A8-2C2C3D9EAAAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57F9B77F-7BD7-4522-84AA-5304306558FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F9B77F-7BD7-4522-84AA-5304306558FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F9B77F-7BD7-4522-84AA-5304306558FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F9B77F-7BD7-4522-84AA-5304306558FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
