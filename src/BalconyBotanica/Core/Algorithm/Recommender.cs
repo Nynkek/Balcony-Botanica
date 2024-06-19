@@ -19,41 +19,36 @@ namespace BalconyBotanica.Core.Algorithm
 
             PlantData[] arrayToFilter = insertedArray.Plants;
 
-            // DONE: check sunlight and delete all the plants who can’t function with that climate
-            // TODO: If answer has "full sun" delete "full shade".
-            // TODO: if awnser had "full shade" delete "full sun".
-            if (quizAnswers.sunlight == Sunlight.FULL_SUN)
+            if (quizAnswers.sunlight > Sunlight.FILTERED_SHADE)
             {
-                Sunlight optionToRemove = Sunlight.FULL_SHADE;
                 arrayToFilter = arrayToFilter
-                                    .Where(x => x.Sunlight.Contains(optionToRemove))
-                                    .ToArray();
-            }
-            // check watering
-            // DONE: if "minimum" than delete "frequent", 
-            //      order "minimum" as first, en "avg" as second.
-            // TODO: if average than nothing, 
-            //      order "frequent" last
-            // TODO: if frequent than nothing, 
-            //      order nothing
-            if (quizAnswers.wateringSchedule == WateringSchedule.MINIMUM)
-            {
-                WateringSchedule optionToRemove = WateringSchedule.FREQUENT;
-                arrayToFilter = arrayToFilter
-                                    .Where(x => x.WateringSchedule != optionToRemove)
-                                    .ToArray();
-
-                arrayToFilter = arrayToFilter
-                    .OrderBy(x =>
-                    {
-                        if (x.WateringSchedule == WateringSchedule.MINIMUM)
-                            return 10; // front of array
-                        if (x.WateringSchedule == WateringSchedule.AVERAGE)
-                            return 20; // back of array
-                        return 15; // middle position of array
-                    })
+                    .Where(x => x.Sunlight.All(s => s > Sunlight.FILTERED_SHADE))
                     .ToArray();
             }
+            if (quizAnswers.sunlight <= Sunlight.FILTERED_SHADE)
+            {
+                arrayToFilter = arrayToFilter
+                    .Where(x => x.Sunlight.All(s => s <= Sunlight.PART_SHADE))
+                    .ToArray();
+            }
+
+            if (quizAnswers.wateringSchedule <= WateringSchedule.MINIMUM)
+            {
+                arrayToFilter = arrayToFilter
+                    .Where(x => x.WateringSchedule <= WateringSchedule.AVERAGE)
+                    .OrderBy(x => x.WateringSchedule)
+                    .ToArray();
+            }
+            else
+            {
+                arrayToFilter = arrayToFilter
+                   .OrderBy(x => x.WateringSchedule)
+                   .ToArray();
+            }
+
+            arrayToFilter = arrayToFilter
+                  .Where(x => x.Toxicity.All(s => s != quizAnswers.toxicity))
+                  .ToArray();
 
             RecommendedPlants recommendedPlants = new()
             {

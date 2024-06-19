@@ -10,5 +10,10 @@ public class PlantData
     public string? Cycle { get; set; }
     public required WateringSchedule WateringSchedule { get; set; }
     public required Sunlight[] Sunlight { get; set; }
+    public required Toxicity[] Toxicity { get; set; }
+
+
+
 
 }
+

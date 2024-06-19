@@ -113,6 +113,10 @@
                 sunlight.innerHTML = `<strong>Sunlight:</strong> ${plant.sunlight.join(', ')}`;
                 plantDiv.appendChild(sunlight);
 
+                const toxicity = document.createElement('p');
+                toxicity.innerHTML = `<strong>Toxicities:</strong> ${plant.toxicity.join(', ')}`;
+                plantDiv.appendChild(toxicity);
+
                 const line = document.createElement('hr');
                 plantDiv.appendChild(line);
 
