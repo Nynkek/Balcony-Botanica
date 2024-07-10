@@ -61,8 +61,8 @@ namespace testing.Core
                 Assert.IsFalse(plant.Sunlight.Contains(Sunlight.FULL_SUN),
                 $"Plant {plant.Id} should have correct Sunlight property");
             }
-            Assert.That(result.Plants[0], Is.EqualTo(insertedArray.Plants[0]),
-            Assert.That(result.Plants[1], Is.EqualTo(insertedArray.Plants[1]),
+            Assert.That(result.Plants[0], Is.EqualTo(insertedArray.Plants[0]));
+            Assert.That(result.Plants[1], Is.EqualTo(insertedArray.Plants[1]));
         }
 
         [Test]
