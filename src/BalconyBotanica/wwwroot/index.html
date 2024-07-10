@@ -1,30 +1,22 @@
 <!DOCTYPE html>
 <html>
 
-<body style="max-width: 600px;  margin: 0 auto; background-color: #AFE1AF;">
-    <div class="flower" style="position: relative; width: 100px; height: 100px; margin: 10px auto;">
-        <div class="petal"
-            style="position: absolute; width: 50px; height: 50px; background-color: #ff99cc; border-radius: 50%; top: 0; left: 25px;">
-        </div>
-        <div class="petal"
-            style="position: absolute; width: 50px; height: 50px; background-color: #ff99cc; border-radius: 50%; top: 25px; right: 0;">
-        </div>
-        <div class="petal"
-            style="position: absolute; width: 50px; height: 50px; background-color: #ff99cc; border-radius: 50%; bottom: 0; right: 25px;">
-        </div>
-        <div class="petal"
-            style="position: absolute; width: 50px; height: 50px; background-color: #ff99cc; border-radius: 50%; bottom: 25px; left: 0;">
-        </div>
-        <div class="center"
-            style="position: absolute; top: 25px; left: 25px; width: 50px; height: 50px; background-color: #ffff66; border-radius: 50%;">
-        </div>
-    </div>
-    <h1 style="text-align: center;">Find your balcony plant</h1>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
 
-    <form id="plantForm"
-        style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4eea4; border: 1px solid #ddd; border-radius: 8px;">
-        <h2 style="font-size: 1.2em; margin-bottom: 10px;"><label for="sunlight">&#x27A1; Amount of sunlight on your
-                balcony?</label></h2>
+<body>
+    <div class="flower">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="center"></div>
+    </div>
+    <h1>Find your balcony plant</h1>
+
+    <form id="plantForm">
+        <h2><label for="sunlight">&#x27A1; Amount of sunlight on your balcony?</label></h2>
         <input type="radio" id="sunlight1" name="sunlight" value="FULL_SUN">
         <label for="sunlight1">Full sun, all day</label><br>
         <input type="radio" id="sunlight2" name="sunlight" value="PART_SHADE" checked="checked">
@@ -34,12 +26,10 @@
         <input type="radio" id="sunlight4" name="sunlight" value="FULL_SHADE">
         <label for="sunlight4">Full shade, no sun</label><br>
 
-        <h2 style="font-size: 1.2em; margin-top: 20px; margin-bottom: 10px;"><label for="spaceSize">
-                &#x27A1; How big is your balcony?</label></h2>
-        <input type="number" id="spaceSize" name="spaceSizeSquareMeters" value="4" style="width: 100px;"> m2<br>
+        <h2><label for="spaceSize">&#x27A1; How big is your balcony?</label></h2>
+        <input type="number" id="spaceSize" name="spaceSizeSquareMeters" value="4"> m2<br>
 
-        <h2 style="font-size: 1.2em; margin-top: 20px; margin-bottom: 10px;"><label for="watering">&#x27A1; How often do
-                you water your plants?</label></h2>
+        <h2><label for="watering">&#x27A1; How often do you water your plants?</label></h2>
         <input type="radio" id="watering1" name="wateringSchedule" value="MINIMUM">
         <label for="watering1">MINIMUM</label><br>
         <input type="radio" id="watering2" name="wateringSchedule" value="AVERAGE" checked="checked">
@@ -47,8 +37,7 @@
         <input type="radio" id="watering3" name="wateringSchedule" value="FREQUENT">
         <label for="watering3">FREQUENT</label><br>
 
-        <h2 style="font-size: 1.2em; margin-top: 20px; margin-bottom: 10px;"><label for="function">&#x27A1; Plant
-                function?</label></h2>
+        <h2><label for="function">&#x27A1; Plant function?</label></h2>
         <input type="radio" id="function1" name="plantFunction" value="EATABLE">
         <label for="function1">Eatable</label><br>
         <input type="radio" id="function2" name="plantFunction" value="FLOWER">
@@ -60,8 +49,7 @@
         <input type="radio" id="function5" name="plantFunction" value="NONE" checked="checked">
         <label for="function5">Don't care</label><br>
 
-        <h2 style="font-size: 1.2em; margin-top: 20px; margin-bottom: 10px;"><label for="toxicity">&#x27A1;
-                Toxicity</label></h2>
+        <h2><label for="toxicity">&#x27A1; Toxicity</label></h2>
         <input type="checkbox" id="toxicity1" name="toxicity" value="NOT_POISONOUS_TO_HUMANS">
         <label for="toxicity1">Not poisonous to humans</label><br>
         <input type="checkbox" id="toxicity2" name="toxicity" value="NOT_POISONOUS_TO_PETS">
@@ -70,16 +58,10 @@
         <label for="toxicity3">All fine</label><br>
 
         <br>
-        <button type="submit"
-            style="background-color: #FFC300; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">&#x21AA;
-            Find my plant, please</button>
+        <button type="submit">&#x21AA; Find my plant, please</button>
     </form>
 
-
-    <div id="result">
-
-    </div>
-
+    <div id="result"></div>
 
     <script>
         document.getElementById('plantForm').addEventListener('submit', async function (event) {
@@ -102,9 +84,7 @@
                 console.log(result);
                 console.log(result.plants);
 
-
                 displayResults(result.plants);
-
 
             } catch (error) {
                 console.error('There was a problem with the fetch operation:', error);
@@ -115,7 +95,6 @@
         function displayResults(plants) {
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = '';
-
 
             if (plants == null || plants.length == 0) {
                 resultDiv.innerText = 'There are no plants in our database that meet your requirements. Adjust your answers to see results.';
@@ -129,20 +108,13 @@
             plants.forEach(plant => {
                 const plantDiv = document.createElement('div');
                 plantDiv.classList.add('plant-result');
-                plantDiv.style.padding = '10px';
-                plantDiv.style.margin = '10px 0';
-                plantDiv.style.borderRadius = '8px';
-                plantDiv.style.backgroundColor = '#DAF7A6';
-                plantDiv.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.1)';
 
                 const commonName = document.createElement('h2');
                 commonName.innerText = plant.common_name;
-                commonName.style.color = '#900C3F';
                 plantDiv.appendChild(commonName);
 
                 const otherNames = document.createElement('p');
                 otherNames.innerHTML = `<strong>Also known as:</strong> ${plant.other_name.join(', ')}`;
-                otherNames.style.color = '#333';
                 plantDiv.appendChild(otherNames);
 
                 const cycle = document.createElement('p');
@@ -166,22 +138,12 @@
         }
     </script>
 
-    <div class="flower" style="position: relative; width: 100px; height: 100px; margin: 50px auto;">
-        <div class="petal"
-            style="position: absolute; width: 50px; height: 50px; background-color: #ff99cc; border-radius: 50%; top: 0; left: 25px;">
-        </div>
-        <div class="petal"
-            style="position: absolute; width: 50px; height: 50px; background-color: #ff99cc; border-radius: 50%; top: 25px; right: 0;">
-        </div>
-        <div class="petal"
-            style="position: absolute; width: 50px; height: 50px; background-color: #ff99cc; border-radius: 50%; bottom: 0; right: 25px;">
-        </div>
-        <div class="petal"
-            style="position: absolute; width: 50px; height: 50px; background-color: #ff99cc; border-radius: 50%; bottom: 25px; left: 0;">
-        </div>
-        <div class="center"
-            style="position: absolute; top: 25px; left: 25px; width: 50px; height: 50px; background-color: #ffff66; border-radius: 50%;">
-        </div>
+    <div class="flower">
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="petal"></div>
+        <div class="center"></div>
     </div>
 
 </body>
