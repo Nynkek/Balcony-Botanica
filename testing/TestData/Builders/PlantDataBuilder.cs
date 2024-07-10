@@ -4,14 +4,14 @@ namespace testing.TestData.Builders;
 
 public class PlantDataBuilder : Builder<PlantData>
 {
-    private string _id = "default-id";
+    private string _id = "000";
     private string _commonName = "default-common-name";
     private string[] _scientificName = ["default-scientific-name"];
     private string[]? _otherName = ["other-name"];
     private string? _cycle = "Annual";
-    private WateringSchedule _wateringSchedule = new WateringSchedule();
+    private WateringSchedule _wateringSchedule = WateringSchedule.AVERAGE;
     private Sunlight[] _sunlight = [Sunlight.PART_SHADE];
-    private Toxicity[] _toxicity = [Toxicity.POISONOUS_TO_PETS];
+    private Toxicity[] _toxicity = [Toxicity.POISONOUS_TO_HUMANS];
 
     public PlantDataBuilder WithId(string id)
     {

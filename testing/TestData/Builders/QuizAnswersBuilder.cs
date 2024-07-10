@@ -4,10 +4,10 @@ namespace testing.TestData.Builders;
 
 public class QuizAnswersBuilder : Builder<QuizAnswers>
 {
-    private Sunlight _sunlight = Sunlight.FULL_SHADE;
+    private Sunlight _sunlight = Sunlight.FILTERED_SHADE;
     private int _spaceSizeSquareMeters = 4;
-    private WateringSchedule _wateringSchedule = WateringSchedule.MINIMUM;
-    private PlantFunction _plantFunction = PlantFunction.EDIBLE;
+    private WateringSchedule _wateringSchedule = WateringSchedule.AVERAGE;
+    private PlantFunction _plantFunction = PlantFunction.NONE;
     private Toxicity _toxicity = Toxicity.NONE;
 
     public QuizAnswersBuilder WithSunlight(Sunlight sunlight)

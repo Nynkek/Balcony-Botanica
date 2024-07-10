@@ -33,11 +33,11 @@ namespace BalconyBotanica.Core.Algorithm
                 arrayToFilter = arrayToFilter
                     .Where(x =>
                         x.Sunlight.All(s =>
-                    s <= Sunlight.PART_SHADE))
+                    s <= Sunlight.FILTERED_SHADE))
                     .ToArray();
             }
 
-            if (quizAnswers.wateringSchedule <= WateringSchedule.MINIMUM)
+            if (quizAnswers.wateringSchedule <= WateringSchedule.AVERAGE)
             {
                 arrayToFilter = arrayToFilter
                     .Where(x =>
@@ -46,6 +46,7 @@ namespace BalconyBotanica.Core.Algorithm
                         x.WateringSchedule)
                     .ToArray();
             }
+
             else
             {
                 arrayToFilter = arrayToFilter

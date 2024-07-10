@@ -31,7 +31,6 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
             wateringSchedule = WateringSchedule.AVERAGE,
             sunlight = [Sunlight.FULL_SUN, Sunlight.PART_SHADE],
             toxicity = [Toxicity.POISONOUS_TO_HUMANS]
-
         };
 
         readonly PlantDataDbo plantData3 = new()
@@ -44,7 +43,6 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
             wateringSchedule = WateringSchedule.AVERAGE,
             sunlight = [Sunlight.FULL_SUN, Sunlight.PART_SHADE],
             toxicity = [Toxicity.POISONOUS_TO_PETS]
-
         };
 
         readonly PlantDataDbo plantData4 = new()
@@ -57,20 +55,18 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
             wateringSchedule = WateringSchedule.MINIMUM,
             sunlight = [Sunlight.FULL_SUN],
             toxicity = [Toxicity.NONE]
-
         };
 
         readonly PlantDataDbo plantData5 = new()
         {
             id = "5",
-            common_name = "Lavender",
+            common_name = "Lavender full sun",
             scientific_name = ["Lavandula"],
             other_name = ["English Lavender", "French Lavender"],
             cycle = "Perennial",
             wateringSchedule = WateringSchedule.AVERAGE,
             sunlight = [Sunlight.FULL_SUN],
             toxicity = [Toxicity.NONE]
-
         };
 
         readonly PlantDataDbo plantData6 = new()
@@ -83,8 +79,20 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
             wateringSchedule = WateringSchedule.MINIMUM,
             sunlight = [Sunlight.FULL_SHADE],
             toxicity = [Toxicity.NONE]
-
         };
+
+        readonly PlantDataDbo plantData7 = new()
+        {
+            id = "7",
+            common_name = "Tulip part shade",
+            scientific_name = ["Tulipa"],
+            other_name = ["Garden Tulip"],
+            cycle = "Perennial",
+            wateringSchedule = WateringSchedule.MINIMUM,
+            sunlight = [Sunlight.PART_SHADE],
+            toxicity = [Toxicity.POISONOUS_TO_HUMANS]
+        };
+
 
         public PlantDataDbo[] ReturnDummyPlant()
         {
@@ -95,7 +103,7 @@ namespace BalconyBotanica.Adapters.Database.DummyDatabase
 
         public PlantDataDbo[] ReturnDummyPlants()
         {
-            PlantDataDbo[] plants = [plantData1, plantData2, plantData3, plantData4, plantData5, plantData6];
+            PlantDataDbo[] plants = [plantData1, plantData2, plantData3, plantData4, plantData5, plantData6, plantData7];
 
             return plants;
         }

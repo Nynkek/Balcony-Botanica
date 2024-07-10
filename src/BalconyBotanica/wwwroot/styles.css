@@ -2,6 +2,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     background-color: #AFE1AF;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .flower {
