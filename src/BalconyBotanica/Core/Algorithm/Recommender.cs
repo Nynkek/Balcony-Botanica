@@ -19,41 +19,20 @@ namespace BalconyBotanica.Core.Algorithm
 
             PlantData[] arrayToFilter = insertedArray.Plants;
 
-            if (quizAnswers.sunlight > Sunlight.FILTERED_SHADE)
-            {
-                arrayToFilter = arrayToFilter
-                    .Where(x =>
-                        x.Sunlight.All(s =>
-                            s > Sunlight.FILTERED_SHADE))
-                    .ToArray();
-            }
-            // TODO: the above seems to work, this part doesnt... debug with tests
-            if (quizAnswers.sunlight <= Sunlight.FILTERED_SHADE)
-            {
-                arrayToFilter = arrayToFilter
-                    .Where(x =>
-                        x.Sunlight.All(s =>
-                    s <= Sunlight.FILTERED_SHADE))
-                    .ToArray();
-            }
+            // TODO: did not test this yet, sunlight is an array, so it's a bit different from wateringSchedule
 
-            if (quizAnswers.wateringSchedule <= WateringSchedule.AVERAGE)
-            {
-                arrayToFilter = arrayToFilter
-                    .Where(x =>
-                        x.WateringSchedule <= WateringSchedule.AVERAGE)
-                    .OrderBy(x =>
-                        x.WateringSchedule)
-                    .ToArray();
-            }
+            arrayToFilter = arrayToFilter
+            .Where(plantData =>
+                plantData.Sunlight.Contains(quizAnswers.sunlight))
+            .ToArray();
 
-            else
-            {
-                arrayToFilter = arrayToFilter
-                   .OrderBy(x =>
-                        x.WateringSchedule)
-                   .ToArray();
-            }
+            arrayToFilter = arrayToFilter
+                .Where(plantData =>
+                    plantData.WateringSchedule <= quizAnswers.wateringSchedule)
+                .OrderBy(plantData =>
+                    plantData.WateringSchedule)
+                .ToArray();
+
 
             arrayToFilter = arrayToFilter
                   .Where(x =>
